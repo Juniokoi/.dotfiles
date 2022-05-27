@@ -22,9 +22,10 @@
   
 
 ## Instalation guide
-1 - first install the ReColor Addon, [link here](https://ankiweb.net/shared/info/688199788)
-2 - Go to tab **Anking** > **ReColor** > in the botton click in **Advanced**
-3 - Copy and paste the snippet below and later click on _save_.
+1 - first install the ReColor Addon, [link here](https://ankiweb.net/shared/info/688199788) <br>
+2 - Go to tab **Anking** > **ReColor** > in the botton click in **Advanced** <br>
+3 - Copy and paste the snippet below and later click on _save_.<br>
+
 <details>
   <summary>
   Theme Snippet  
@@ -257,13 +258,13 @@
 }
 ```
 </details>
-
-4- Now you have to add these 4 fields to any card template you have:
-* Front
-* FrontOpt
-* BackOpt
-* Reference
-
+<br><br>
+4- Now you have to add these 4 fields to any card template you have: <br>
+* Front <br>
+* FrontOpt <br>
+* BackOpt <br>
+* Reference <br>
+<br>
 <details><summary>
   Image showing the steps necessary
   </summary>
@@ -271,12 +272,13 @@
 ![explorer_zZOGFiGOzh](https://user-images.githubusercontent.com/53125029/170782079-900446a0-24df-4690-9c04-68e5187ecd67.png)
 
 </details>
-
-5 - When you done, click on Cards and you'll see some code fields , like the image below:
+ <br> <br>
+5 - When you done, click on Cards and you'll see some code fields , like the image below: <br>
 <details><summary> Example image </summary> 
 ![anki_RyNzht5v8T](https://user-images.githubusercontent.com/53125029/170782395-d081c21b-9f89-4901-b98f-d911215262de.png)
 </details>
-6- And just replace what's inside with the snippet below:
+ <br> <br>
+6- And just replace what's inside with the snippet below: <br>
 
 
 <!-- ---------- Front template ----------- -->
@@ -584,7 +586,7 @@ opacity:0.8;
   
   
 </details>
+ <br> <br> <br>
 
-
-And now all shoud be good!! 
+And now all shoud be good!!  ✨✨
   
