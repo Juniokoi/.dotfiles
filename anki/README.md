@@ -278,7 +278,18 @@
 </details>
 6- And just replace what's inside with the snippet below:
 
-<details><summary> Front Template</summary> 
+
+<!-- ---------- Front template ----------- -->
+
+
+
+
+<details>
+  <summary> 
+    Front Template
+  </summary> 
+  
+  
 ```html
   
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Sans">
@@ -298,8 +309,19 @@
 
 </div>
 ```
+</details>  
+  
+  
+<!--  -------- Back Template ---------  -->
+  
+  
 <details>
-  <details><summary> Back Template</summary> 
+  <summary> 
+       Back Template
+  </summary>
+  
+  
+  
 ```html
     
 {{FrontSide}}
@@ -322,8 +344,21 @@
 </div>
 {{/Reference}}
 ```
+  
+  
+  
+</details>
+  
+<!--  --------- CSS ----------  -->
+  
+  
 <details>
-  <details><summary> Styling </summary> 
+  <summary> 
+    Styling 
+  </summary> 
+  
+  
+  
 ```css
     .card {
  font-family: "Fira Sans";
@@ -546,5 +581,10 @@ opacity:0.8;
 .nightMode .highlight .vm { color: #8be9fd; font-style: italic } /* Name.Variable.Magic */
 .nightMode .highlight .il { color: #bd93f9 } /* Literal.Number.Integer.Long */
 ```
-<details>
+  
+  
+</details>
+
+
+And now all shoud be good!! 
   
