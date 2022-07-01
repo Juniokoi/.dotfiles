@@ -10,6 +10,8 @@ PS1='[\u@\h \W]\$ '
 #Display ISO version and distribution information in short
 alias version="sed -n 1p /etc/os-release && sed -n 11p /etc/os-release && sed -n 12p /etc/os-release"
 
+export PATH="$HOME/.dotfiles/bin:$PATH"
+
 #Pacman Shortcuts
 alias sync="sudo pacman -Syyy"
 alias install="sudo pacman -S"
@@ -28,7 +30,9 @@ My aliases for testing
 '
 alias vim="nvim"
 alias bc="vim ~/.bashrc"
+alias kc="vim ~/.config/kitty/kitty.conf"
 alias ls="exa --icons"
+alias cdot="cd ~/.dotfiles/"
 alias {c,cl,cle,clea}="clear"
 alias logoff="sudo pkill -KILL -u $USER"
 alias ac="vim ~/.config/awesome/rc.lua"

@@ -585,3 +585,7 @@ awful.spawn.with_shell(
   'dex --environment Awesome --autostart --search-paths "$XDG_CONFIG_DIRS/autostart:$XDG_CONFIG_HOME/autostart"' -- https://github.com/jceb/dex
 )
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+
+beautiful.gap_single_client = true
+beautiful.useless_gap = 20
+
