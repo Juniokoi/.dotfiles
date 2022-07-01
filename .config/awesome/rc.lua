@@ -578,6 +578,7 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+-- Function to execute files inside $HOME/.config/awesome/autorun.sh
 awful.spawn.with_shell(
   'if (xrdb -query | grep -q "^awesome\\.started:\\s*true$"); then exit; fi;' ..
   'xrdb -merge <<< "awesome.started:true";' ..
@@ -586,6 +587,7 @@ awful.spawn.with_shell(
 )
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 
+-- Add gap between windows
 beautiful.gap_single_client = true
 beautiful.useless_gap = 20
 
