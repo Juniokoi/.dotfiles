@@ -6,11 +6,19 @@
 [[ $- != *i* ]] && return
 
 PS1='[\u@\h \W]\$ '
+#bleopt editor=vim
+source "$HOME/.local/share/blesh/ble.sh" --noattach
+. /opt/asdf-vm/asdf.sh ## asdf for bash
 
 #Display ISO version and distribution information in short
 alias version="sed -n 1p /etc/os-release && sed -n 11p /etc/os-release && sed -n 12p /etc/os-release"
 
 export PATH="$HOME/.dotfiles/bin:$PATH"
+export BAT_THEME="Dracula"
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+export HISTCONTROL=ignoredups
+shopt -s autocd ##By typing only the directory, will cd into it
 
 #Pacman Shortcuts
 alias sync="sudo pacman -Syyy"
@@ -29,14 +37,24 @@ alias autoremove="sudo pacman -Rns"
 My aliases for testing
 '
 alias vim="nvim"
-alias bc="vim ~/.bashrc"
-alias kc="vim ~/.config/kitty/kitty.conf"
+alias b="bash"
+alias sayonara="shutdown -h now"
+alias bc="vim $HOME/.bashrc"
+alias kc="vim $HOME/.config/kitty/kitty.conf"
 alias ls="exa --icons"
-alias cdot="cd ~/.dotfiles/"
+alias la="exa -a --icons"
+alias cat="bat --color=always --style=numbers"
+alias e="ranger"
+alias {s,f,zz}="zsh"
+alias cdot="cd $HOME/.dotfiles/"
 alias {c,cl,cle,clea}="clear"
 alias logoff="sudo pkill -KILL -u $USER"
-alias ac="vim ~/.config/awesome/rc.lua"
+alias ac="vim $HOME/.config/awesome/rc.lua"
+alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+alias vc="vim $HOME/.config/nvim/init.lua"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+[[ ${BLE_VERSION-} ]] && ble-attach
+source "$HOME/.blerc"
