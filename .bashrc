@@ -19,7 +19,8 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 export HISTCONTROL=ignoredups
 shopt -s autocd ##By typing only the directory, will cd into it
-
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
+export EDITOR="lvim"
 #Pacman Shortcuts
 alias sync="sudo pacman -Syyy"
 alias install="sudo pacman -S"
@@ -36,11 +37,10 @@ alias autoremove="sudo pacman -Rns"
 : '
 My aliases for testing
 '
-alias vim="nvim"
 alias b="bash"
 alias sayonara="shutdown -h now"
-alias bc="vim $HOME/.bashrc"
-alias kc="vim $HOME/.config/kitty/kitty.conf"
+alias bc="$EDITOR $HOME/.bashrc"
+alias kc="$EDITOR $HOME/.config/kitty/kitty.conf"
 alias ls="exa --icons"
 alias la="exa -a --icons"
 alias cat="bat --color=always --style=numbers"
@@ -49,9 +49,9 @@ alias {s,f,zz}="zsh"
 alias cdot="cd $HOME/.dotfiles/"
 alias {c,cl,cle,clea}="clear"
 alias logoff="sudo pkill -KILL -u $USER"
-alias ac="vim $HOME/.config/awesome/rc.lua"
+alias ac="$EDITOR $HOME/.config/awesome/rc.lua"
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
-alias vc="vim $HOME/.config/nvim/init.lua"
+alias vc="$EDITOR $HOME/.config/nvim/init.lua"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
