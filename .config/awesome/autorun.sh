@@ -1,13 +1,14 @@
 #!/bin/sh
-
 run() {
   if ! pgrep -f "$1" ;
   then
     "$@"&
   fi
 }
-run ~/.config/awesome/1password.desktop
-run ~/.config/awesome/org.flameshot.Flameshot.desktop
-run feh --bg-fill --random ~/Pictures/.wallpaper/* 
+
 run numlockx
-run blueman-tray
+run feh --bg-fill --random $HOME/Pictures/.wallpaper/*
+run picom --experimental-backends --config $HOME/.config/picom/picom.sample.conf
+run /usr/bin/emacs --daemon
+## run "$HOME/.config/polybar/launch.sh"
+## run "$HOME/.config/awesome/org.flameshot.Flameshot.desktop
