@@ -3,4 +3,6 @@ misc
 ^ /.*\.org
 LICENSE
 README.md
-anki/
+^/Anki/*
+^/anki/*
+\.bin

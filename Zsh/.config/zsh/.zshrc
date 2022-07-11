@@ -1,6 +1,7 @@
 	# Load main functions
 export ZDOTDIR="$HOME/.config/zsh"
 
+
 source "$ZDOTDIR/zsh-functions"
 fpath=(~/newdir $fpath)
 # setopt autocd extendedglob nomatch menucomplete
