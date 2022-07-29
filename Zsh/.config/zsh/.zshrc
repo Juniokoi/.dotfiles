@@ -44,5 +44,18 @@ zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-exports"
 zsh_add_file "zsh-prompt"
 
+function toggle-theme() {
+	current_theme=$(awk '$1=="include" {print $2}' "$HOME/.config/kitty/kitty.conf")
+	new_theme="rose-pine-moon.conf"
 
+	if [ "$current_theme" = "rose-pine-moon.conf" ]; then
+		new_theme="rose-pine-dawn.conf"
+	fi
+
+	# Set theme for active sessions. Requires `allow_remote_control yes`
+	kitty @ set-colors --all --configured "~/.config/kitty/$new_theme"
+
+	# Update config for persistence
+	sed -i '' -e "s/include.*/include $new_theme/" "$HOME/.config/kitty/kitty.conf"
+}
 . /opt/asdf-vm/asdf.sh
