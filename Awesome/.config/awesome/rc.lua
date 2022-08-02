@@ -7,7 +7,8 @@ local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
-local wibox = require("wibox")
+local wibox = require("wibox"
+)
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
@@ -73,18 +74,18 @@ local modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
   awful.layout.suit.tile,
-  awful.layout.suit.floating,
-  awful.layout.suit.tile.left,
-  awful.layout.suit.tile.bottom,
-  awful.layout.suit.tile.top,
-  awful.layout.suit.fair,
-  awful.layout.suit.fair.horizontal,
-  awful.layout.suit.spiral,
-  awful.layout.suit.spiral.dwindle,
-  awful.layout.suit.max,
-  awful.layout.suit.max.fullscreen,
-  awful.layout.suit.magnifier,
-  awful.layout.suit.corner.nw,
+  -- awful.layout.suit.floating,
+  -- awful.layout.suit.tile.left,
+  -- awful.layout.suit.tile.bottom,
+  -- awful.layout.suit.tile.top,
+  -- awful.layout.suit.fair,
+  -- awful.layout.suit.fair.horizontal,
+  -- awful.layout.suit.spiral,
+  -- awful.layout.suit.spiral.dwindle,
+  -- awful.layout.suit.max,
+  -- awful.layout.suit.max.fullscreen,
+  -- awful.layout.suit.magnifier,
+  -- awful.layout.suit.corner.nw,
   -- awful.layout.suit.corner.ne,
   -- awful.layout.suit.corner.sw,
   -- awful.layout.suit.corner.se,
@@ -180,7 +181,7 @@ awful.screen.connect_for_each_screen(function(s)
   set_wallpaper(s)
 
   -- Each screen has its own tag table.
-  awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+  awful.tag({ "1", "2", "3", "4" }, s, awful.layout.layouts[1])
 
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
@@ -261,8 +262,8 @@ globalkeys = gears.table.join(
     end,
     { description = "focus previous by index", group = "client" }
   ),
-  awful.key({ modkey, }, "w", function() mymainmenu:show() end,
-    { description = "show main menu", group = "awesome" }),
+  -- awful.key({ modkey, "shift" }, "w", function() mymainmenu:show() end,
+  --   { description = "show main menu", group = "awesome" }),
 
   -- Layout manipulation
   awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.byidx(1) end,
@@ -289,8 +290,8 @@ globalkeys = gears.table.join(
     { description = "open a terminal", group = "launcher" }),
   awful.key({ modkey, "Control" }, "r", awesome.restart,
     { description = "reload awesome", group = "awesome" }),
-  awful.key({ modkey, "Shift" }, "q", awesome.quit,
-    { description = "quit awesome", group = "awesome" }),
+  -- awful.key({ modkey, "Shift" }, "q", awesome.quit,
+  --   { description = "quit awesome", group = "awesome" }),
 
   awful.key({ modkey, }, "l", function() awful.tag.incmwfact(0.05) end,
     { description = "increase master width factor", group = "layout" }),
@@ -354,7 +355,7 @@ clientkeys = gears.table.join(
       c:raise()
     end,
     { description = "toggle fullscreen", group = "client" }),
-  awful.key({ modkey, "Shift" }, "c", function(c) c:kill() end,
+  awful.key({ modkey, }, "w", function(c) c:kill() end,
     { description = "close", group = "client" }),
   awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle,
     { description = "toggle floating", group = "client" }),
@@ -458,7 +459,9 @@ clientbuttons = gears.table.join(
 -- Set keys
 root.keys(globalkeys)
 -- }}}
-
+beautiful.border_width = 2
+beautiful.border_normal = "#44475a"
+beautiful.border_focus = "#ff79c6"
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
@@ -485,6 +488,7 @@ awful.rules.rules = {
     class = {
       "Arandr",
       "Blueman-manager",
+      "KeePassXC",
       "Gpick",
       "Kruler",
       "MessageWin", -- kalarm.
@@ -571,11 +575,14 @@ client.connect_signal("request::titlebars", function(c)
     layout = wibox.layout.align.horizontal
   }
 end)
+
+-- Windows round corner
 client.connect_signal("manage", function(c)
   c.shape = function(cr, w, h)
     gears.shape.rounded_rect(cr, w, h, 10)
   end
 end)
+--
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
   c:emit_signal("request::activate", "mouse_enter", { raise = false })
@@ -595,5 +602,5 @@ awful.spawn.with_shell(
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 
 -- Add gap between windows
-beautiful.gap_single_client = false
+beautiful.gap_single_client = true
 beautiful.useless_gap = 4

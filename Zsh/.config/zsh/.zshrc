@@ -1,5 +1,6 @@
 	# Load main functions
 export ZDOTDIR="$HOME/.config/zsh"
+eval "$(zoxide init zsh)"
 
 
 source "$ZDOTDIR/zsh-functions"
@@ -9,26 +10,28 @@ stty stop undef   # Disable ctrl-s to freeze terminal
 zle_highlight=('paste:none') # Remove text's highilight when pasted
 unsetopt BEEP # Remove annoying boop
 
-
-	# Completions
- autoload -Uz compinit
- zstyle ':completion:*' menu select
-_comp_options+=(globdots)		# Include hidden files.
-
-
 	#Useful plugins
 zsh_add_plugin "hlissner/zsh-autopair" # Adds autopair, really useful
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-# zsh_add_plugin "marlonrichert/zsh-autocomplete" # May lag your zshell, but is wonderful
+zsh_add_plugin "marlonrichert/zsh-autocomplete" # May lag your zshell, but is wonderful
 
-
+zstyle ':autocomplete:*' recent-dirs zoxide
 	#Bindkeys
- bindkey -s '^o' 'ranger^M'
- bindkey -s '^f' 'zi^M'
- bindkey "^k" up-line-or-beginning-search
- bindkey "^j" down-line-or-beginning-search
+bindkey -s '^o' 'ranger^M'
+ # Up arrow:
+bindkey '\e[A' up-line-or-search
+bindkey '\eOA' up-line-or-search
 
+ # Down arrow:
+bindkey '\e[B' down-line-or-select
+bindkey '\eOB' down-line-or-select
+
+# Control-Space:
+bindkey '\0' list-expand
+
+ # Return key in completion menu & history menu:
+bindkey -M menuselect '\r' .accept-line
 
 	#FZF
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
@@ -58,4 +61,5 @@ function toggle-theme() {
 	# Update config for persistence
 	sed -i '' -e "s/include.*/include $new_theme/" "$HOME/.config/kitty/kitty.conf"
 }
-. /opt/asdf-vm/asdf.sh
+
+zstyle ':autocomplete:*' fzf-completion yes

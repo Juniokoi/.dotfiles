@@ -50,9 +50,35 @@
 ;(unpin! t)
 
 
-(package! tldr)
-(package! harpoon)
-(package! org-fancy-priorities)
-(package! prettier-js)
-(package! google-translate)
+(package! harpoon) ;; Switch faster between buffers 🍃
+(package! org-fancy-priorities) ;;Org Mode now even more fancier
+(package! prettier-js) ;; Don't worry about tabs spacing anymore
+(package! google-translate) ;; English isn't my mother language hehe
 (package! ob-typescript)
+(package! flycheck-aspell)
+(package! calfw)
+(package! calfw-org)
+(package! dashboard)
+(package! dired-open)
+(package! dired-subtree)
+(package! dmenu) ;; Old school lancher for Linux
+(package! elfeed-goodies)
+(package! emojify) ;;Emojis are always welcome! 😊
+(package! evil-tutor) ;; To git gud
+(package! exwm)
+(package! ivy-posframe)
+(package! mw-thesaurus)
+(package! org-auto-tangle) ;;Generate a script based on a .org file snippets
+(package! org-web-tools)
+(package! ox-gemini)
+(package! peep-dired)
+(package! password-store) ;; shhh!! Don't tell anyone!
+(package! rainbow-mode) ;; Turns code easier to follow
+(package! resize-window)
+(package! tldr) ;; Too long didn't read
+(package! wc-mode)
+(package! beacon) ;;Make cursor pretty
+(package! clippy) ;; Copy-paste never was so easy
+(package! minimap) ;;Similar to vscode, but buggy
+(package! olivetti)
+(package! ranger) ;; Filesearch for terminal

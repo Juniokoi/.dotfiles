@@ -1,21 +1,28 @@
-
-
+alias b="bash"
 alias vim="nvim"
 alias e="ranger"
-alias b="bash"
-alias {zz,s,f}="zsh"
-alias bc="$EDITOR $HOME/.bashrc"
-alias kc="$EDITOR $HOME/.config/kitty/kitty.conf"
-alias ac="$EDITOR $HOME/.config/awesome/rc.lua"
-alias supersudo="sudo --preserve-env=PATH env"
-alias logoff="sudo pkill -KILL -u $USER"
 alias sayonara="shutdown -h now"
-alias {zc,cv}="$EDITOR $HOME/.config/zsh/.zshrc"
+alias bc="$EDITOR $HOME/.bashrc"
+alias logoff="sudo pkill -KILL -u $USER"
+alias supersudo="sudo --preserve-env=PATH env"
+alias ac="$EDITOR $HOME/.config/awesome/rc.lua"
+alias kc="$EDITOR $HOME/.config/kitty/kitty.conf"
+
+# Laziness
+alias {zz,s,f}="zsh"
 alias {c,cl,cle,clea}="clear"
-alias yayy="yay"
-alias yay="yayy --noconfirm"
-alias update="yayy -Syyuu"
+alias {zc,cv}="$EDITOR $HOME/.config/zsh/.zshrc"
+
+# External tools
 alias ls="exa -lh --icons"
 alias la="exa -lah --icons"
 alias cat="bat --style=numbers"
+
+# Emacs runner
 alias emacs="emacsclient -c -a 'emacs'"
+
+# Docker
+alias di="docker image"
+alias dv="docker volume"
+alias docker="sudo docker"
+alias dc="docker container"
