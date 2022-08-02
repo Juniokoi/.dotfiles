@@ -266,6 +266,13 @@ globalkeys = gears.table.join(
   --   { description = "show main menu", group = "awesome" }),
 
   -- Layout manipulation
+  awful.key({ modkey, "Shift" },"s",  function() awful.util.spawn("flameshot gui",false) end,
+    { description = "Print Screen", group = "launcher" }),
+  awful.key({},"Print",  function() awful.util.spawn("flameshot gui",false) end,
+    { description = "Print Screen too!", group = "launcher" }),
+
+
+
   awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.byidx(1) end,
     { description = "swap with next client by index", group = "client" }),
   awful.key({ modkey, "Shift" }, "k", function() awful.client.swap.byidx(-1) end,

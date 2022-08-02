@@ -82,3 +82,9 @@
 (package! minimap) ;;Similar to vscode, but buggy
 (package! olivetti)
 (package! ranger) ;; Filesearch for terminal
+
+
+(package! vue-mode)
+(package! lsp-mode)
+(package! lsp-vue)
+(package! company-lsp)
